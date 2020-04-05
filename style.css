@@ -1,0 +1,13 @@
+body{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas: "gauche millieu droite";
+}
+.gamecontainer {
+    display: grid;
+    grid-template-columns: 50px 50px 50px;
+    grid-template-rows: 50px 50px 50px;
+    grid-area: millieu;
+    justify-content: center;
+    
+}
