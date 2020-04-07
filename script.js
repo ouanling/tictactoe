@@ -3,6 +3,13 @@ const btnsave = document.querySelector(".btnsave");
 const startcontainer = document.querySelector(".playerscontainer");
 const name1 = document.querySelector(".name1");
 const name2 = document.querySelector(".name2");
+const name1display = document.querySelector(".scorename1");
+const name2display = document.querySelector(".scorename2");
+const name1score = document.querySelector(".score1");
+const name2score = document.querySelector(".score2");
+const newround = document.querySelector(".newround");
+const cleargame = document.querySelector(".cleargame");
+var roundover = false;
 const winCombos = [
   [0, 1, 2],
   [3, 4, 5],
@@ -21,9 +28,28 @@ var Player1 = "";
 var Player2 = "";
 
 
+const Player = (name, symbol) => {
+    let score = 0;
+    getName = () => name;
+    getSymbol = () => symbol;
+    getScore = () => score;
+    addWin = () => score++;
+    empty = () => {
+       name = "";
+       symbol = "";
+       score = "";
+    };
+  
+    return { getName, getSymbol, getScore, addWin, empty };
+  };
+
 const gameBoard = (() => {
   let board = ["", "", "", "", "", "", "", "", ""];
-  const boardclear = () => { board = ["", "", "", "", "", "", "", "", ""]; };
+  const boardclear = () => { board = ["", "", "", "", "", "", "", "", ""]; 
+  
+gameBoard.render();
+if (roundover && drawcombo) {drawcombo.forEach((nbs) => (gameDisplay[nbs].className = "theboard"));};
+};
   const render = () => {
     gameDisplay.forEach((square) => {
       let rz = square.dataset.pos;
@@ -37,6 +63,7 @@ const gameBoard = (() => {
     );
 
     if (resultp1 || resultp2 == true) {
+        roundover = true;
       console.log(" the winner is" + gamePlay.currentTurn());
       drawwin(gamePlay.currentTurn());
     } else if (
@@ -48,13 +75,18 @@ const gameBoard = (() => {
     }
   };
   const drawwin = (winner) => {
+   
     if (winner == "x") {
+        Player1.addWin();
+        name1score.innerHTML = Player1.getScore() + ' Pts';
       winCombos.forEach((combo) => {
         if (combo.every((position) => p1array.includes(position))) {
           drawcombo = combo;
         }
       });
     } else {
+        Player2.addWin();
+        name2score.innerHTML = Player2.getScore() + ' Pts';
       winCombos.forEach((combo) => {
         if (combo.every((position) => p2array.includes(position))) {
           drawcombo = combo;
@@ -69,12 +101,14 @@ const gameBoard = (() => {
     render,
     chkwin,
     drawwin,
+    boardclear
   };
 })();
 const gamePlay = (() => {
   let turnsymbol = "x";
   let roundplayedvar = 0;
   const clicked = (el, position) => {
+      if (!roundover) {
     if (!el.innerHTML) {
       el.innerHTML = turnsymbol;
       if (turnsymbol == "x") {
@@ -84,7 +118,7 @@ const gamePlay = (() => {
       }
       changeTurn();
     }
-  };
+  ;}};
   const Tie = () => {
     console.log("tie");
   };
@@ -106,12 +140,16 @@ const gamePlay = (() => {
     roundplayedvar++;
   };
   const reset = () => { 
+ 
       currentPlayer = "";
       p1array = [];
       p2array = [];
-      drawcombo = "";
+      
       gameBoard.boardclear();
+      drawcombo = "";
       roundplayedvar = 0;
+      startcontainer.className = "playerscontainer";
+
   };
 
   return {
@@ -120,32 +158,26 @@ const gamePlay = (() => {
     changeTurn,
     Tie,
     roundplayed,
+    reset
   };
 })();
 
 gameDisplay.forEach((square) => {
-  square.addEventListener("click", function () {
-    gamePlay.clicked(this, square.dataset.pos);
+    square.addEventListener("click", function () {
+      gamePlay.clicked(this, square.dataset.pos);
+    });
   });
-});
 
-const Player = (name, symbol) => {
-  let score = 0;
-  getName = () => name;
-  getSymbol = () => symbol;
-  getScore = () => score;
-  addWin = () => score++;
-  reset = () => {
-     name = "";
-     symbol = "";
-     score = "";
-  };
 
-  return { getName, getSymbol, getScore, addWin,reset };
-};
 btnsave.addEventListener("click", function() { 
     Player1 = Player(name1.value, "x");
     Player2 = Player(name2.value, "o");
+    name1display.innerHTML = name1.value + "<b> <u>;</b></u>";
+    name1score.innerHTML = "0 Pts";
+    name2score.innerHTML = "0 Pts";
+    name2display.innerHTML = name2.value + "<b> <u>;</b></u>";
     startcontainer.className = "playerscontainer Fadeout";});
+
+  
 
 

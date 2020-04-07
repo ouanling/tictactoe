@@ -1,8 +1,14 @@
 body{
     font-family: Verdana, Geneva, sans-serif;
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    grid-template-areas: "gauche millieu droite";
+    justify-items: center;
+    grid-template-columns: 1fr 100px 180px 100px 1fr;
+    grid-template-areas: 
+    "gauche p1 millieu p2 droite"
+    ". . announcement . ."
+
+;
+    
 }
 .gamecontainer {
     display: grid;
@@ -12,6 +18,49 @@ body{
     justify-content: center;
     grid-gap: 1px;
     
+}
+.announcement {
+    grid-area: announcement;
+    display: flex;
+    width: 180px;
+    justify-content: space-around;
+    
+   
+
+}
+.announcement > * {
+    font-size: 12px;
+
+    height: 30px;
+    text-align: center;
+    margin-top: 15px;
+    background: white;
+    border: 1px solid black;
+    
+}
+.announcement > *:hover {
+    background: #dddddd;
+    opacity: 0.7;
+}
+
+
+.p1score {
+    grid-area: p1;
+    height: 115px;
+    width: 100px;
+    font-size: 11px;
+}
+.p2score {
+    grid-area: p2;
+    height: 115px;
+    width: 100px;
+    font-size: 11px;
+}
+.score1 {
+    text-align: end;
+}
+.score2 {
+    text-align: end;
 }
 .playerscontainer {
     display: flex;
@@ -60,10 +109,11 @@ body{
     border: 2px solid #FF851B;
     background: #FFFFFF;
     border-radius: 10%;
-    width: 40px;
+    width: 80px;
     font-size: 13px;
     padding: 2px;
     text-align: center;
     align-self: center;
     margin: 5px;
+    margin-left: 20px;
 }
