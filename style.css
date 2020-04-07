@@ -26,14 +26,35 @@ body{
     height: 200px;
     background: #DDDDDD;
     text-align: center;
+    transition-timing-function: ease-out;
+    transition: 0.4s;
+    
 }
 .playerscontainer input[type=text] {
     border: 2px solid #FF851B;
      margin: 2px;
+     width: 150px;
+     text-align: center;
+     
      
  }
+ .Fadeout {
+     transition-timing-function: ease-in;
+     transition: 0.3s;
+     transform: translateX(200%);
+  }
+
 .theboard {
     border: 2px solid black;
+    text-align: center;
+    font-size: 40px;
+    line-height: 40px;
+}
+.woncase {
+    background-color: #B10DC9;
+    color: #FFDC00;
+    font-size: 45px;
+
 }
 .btnsave {
     border: 2px solid #FF851B;
