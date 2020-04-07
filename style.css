@@ -1,12 +1,11 @@
 body {
-  font-family: Verdana, Geneva, sans-serif;
   display: grid;
   justify-items: center;
   grid-template-columns: 1fr 100px 180px 100px 1fr;
   grid-template-areas:
     "gauche p1 millieu p2 droite"
     ". . announcement . .";
-    font-family: "Dejavu serif";
+    font-family: 'Ubuntu Mono', monospace;
 }
 .gamecontainer {
   display: grid;
@@ -60,7 +59,7 @@ body {
   position: absolute;
   z-index: 10;
   left: 50%;
-  transform: translate(-200%);
+  transform: translate(-50%);
   border: 3px solid #111111;
   border-radius: 5%;
   width: 500px;
@@ -79,7 +78,7 @@ body {
 .Fadeout {
   transition-timing-function: ease-in;
   transition: 0.3s;
-  transform: translateX(200%);
+  transform: translateX(2000%);
 }
 
 .theboard {
