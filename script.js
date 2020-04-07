@@ -148,8 +148,21 @@ const gamePlay = (() => {
       gameBoard.boardclear();
       drawcombo = "";
       roundplayedvar = 0;
+      
       startcontainer.className = "playerscontainer";
 
+  };
+  const newround = () => {
+      p1array = [];
+      p2array = [];
+      
+      gameBoard.boardclear();
+      drawcombo = "";
+      turnsymbol = "x";
+      roundover = false;
+      roundplayedvar = 0;
+      
+      
   };
 
   return {
@@ -158,16 +171,18 @@ const gamePlay = (() => {
     changeTurn,
     Tie,
     roundplayed,
-    reset
+    reset,
+    newround
   };
 })();
-
+function startplay () {
 gameDisplay.forEach((square) => {
     square.addEventListener("click", function () {
       gamePlay.clicked(this, square.dataset.pos);
     });
   });
-
+};
+startplay();
 
 btnsave.addEventListener("click", function() { 
     Player1 = Player(name1.value, "x");
