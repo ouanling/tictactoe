@@ -1,119 +1,107 @@
-body{
-    font-family: Verdana, Geneva, sans-serif;
-    display: grid;
-    justify-items: center;
-    grid-template-columns: 1fr 100px 180px 100px 1fr;
-    grid-template-areas: 
+body {
+  font-family: Verdana, Geneva, sans-serif;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 1fr 100px 180px 100px 1fr;
+  grid-template-areas:
     "gauche p1 millieu p2 droite"
-    ". . announcement . ."
-
-;
-    
+    ". . announcement . .";
+    font-family: "Dejavu serif";
 }
 .gamecontainer {
-    display: grid;
-    grid-template-columns: 50px 50px 50px;
-    grid-template-rows: 50px 50px 50px;
-    grid-area: millieu;
-    justify-content: center;
-    grid-gap: 1px;
-    
+  display: grid;
+  grid-template-columns: 50px 50px 50px;
+  grid-template-rows: 50px 50px 50px;
+  grid-area: millieu;
+  justify-content: center;
+  grid-gap: 1px;
 }
 .announcement {
-    grid-area: announcement;
-    display: flex;
-    width: 180px;
-    justify-content: space-around;
-    
-   
-
+  grid-area: announcement;
+  display: flex;
+  width: 180px;
+  justify-content: space-around;
 }
 .announcement > * {
-    font-size: 12px;
+  font-size: 12px;
 
-    height: 30px;
-    text-align: center;
-    margin-top: 15px;
-    background: white;
-    border: 1px solid black;
-    
+  height: 30px;
+  text-align: center;
+  margin-top: 15px;
+  background: white;
+  border: 1px solid black;
 }
 .announcement > *:hover {
-    background: #dddddd;
-    opacity: 0.7;
+  background: #dddddd;
+  opacity: 0.7;
 }
-
 
 .p1score {
-    grid-area: p1;
-    height: 115px;
-    width: 100px;
-    font-size: 11px;
+  grid-area: p1;
+  height: 115px;
+  width: 100px;
+  font-size: 11px;
 }
 .p2score {
-    grid-area: p2;
-    height: 115px;
-    width: 100px;
-    font-size: 11px;
+  grid-area: p2;
+  height: 115px;
+  width: 100px;
+  font-size: 11px;
 }
 .score1 {
-    text-align: end;
+  text-align: end;
 }
 .score2 {
-    text-align: end;
+  text-align: end;
 }
 .playerscontainer {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    z-index: 10;
-    left: 50%;
-    transform: translate(-50%);
-    border: 3px solid #111111;
-    border-radius: 5%;
-    width: 500px;
-    height: 200px;
-    background: #DDDDDD;
-    text-align: center;
-    transition-timing-function: ease-out;
-    transition: 0.4s;
-    
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 10;
+  left: 50%;
+  transform: translate(-200%);
+  border: 3px solid #111111;
+  border-radius: 5%;
+  width: 500px;
+  height: 200px;
+  background: #dddddd;
+  text-align: center;
+  transition-timing-function: ease-out;
+  transition: 0.4s;
 }
-.playerscontainer input[type=text] {
-    border: 2px solid #FF851B;
-     margin: 2px;
-     width: 150px;
-     text-align: center;
-     
-     
- }
- .Fadeout {
-     transition-timing-function: ease-in;
-     transition: 0.3s;
-     transform: translateX(200%);
-  }
+.playerscontainer input[type="text"] {
+  border: 2px solid #ff851b;
+  margin: 2px;
+  width: 150px;
+  text-align: center;
+}
+.Fadeout {
+  transition-timing-function: ease-in;
+  transition: 0.3s;
+  transform: translateX(200%);
+}
 
 .theboard {
-    border: 2px solid black;
-    text-align: center;
-    font-size: 40px;
-    line-height: 40px;
+  border: 2px solid black;
+  text-align: center;
+  font-size: 40px;
+  line-height: 40px;
 }
 .woncase {
-    background-color: #B10DC9;
-    color: #FFDC00;
-    font-size: 45px;
-
+  background-color: #b10dc9;
+  color: #ffdc00;
+  font-size: 45px;
 }
 .btnsave {
-    border: 2px solid #FF851B;
-    background: #FFFFFF;
-    border-radius: 10%;
-    width: 80px;
-    font-size: 13px;
-    padding: 2px;
-    text-align: center;
-    align-self: center;
-    margin: 5px;
-    margin-left: 20px;
+  border: 2px solid #ff851b;
+  background: #ffffff;
+  border-radius: 10%;
+  width: 80px;
+  font-size: 13px;
+  padding: 2px;
+  text-align: center;
+  align-self: center;
+  margin: 5px;
+  margin-left: 20px;
 }
